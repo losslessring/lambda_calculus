@@ -61,7 +61,7 @@
 (check-expect (expr? '((lambda (x) x) (lambda (x) x))) #t)
 (check-expect (step '((lambda (x) x) (lambda (y) y))) '(lambda (y) y))
 (check-expect (step '(((lambda (x) x) (lambda (y) y)) (lambda (z) z))) '((lambda (y) y) (lambda (z) z)))
-;(step (step '(((lambda (x) x) (lambda (y) y)) (lambda (z) z))))
+(check-expect (step (step '(((lambda (x) x) (lambda (y) y)) (lambda (z) z)))) '(lambda (z) z))
 
 ;(deep-eval '((lambda (x) x) (lambda (y) y)))
 ;(deep-eval '(((lambda (x) x) (lambda (y) y)) ((lambda (z) z) (lambda (a) a))))

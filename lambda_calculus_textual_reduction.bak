@@ -1,6 +1,4 @@
 #lang racket
-(require test-engine/racket-tests)
-
 (define (expr? e)
   (match e
     [(? symbol? x) #t]
@@ -57,10 +55,10 @@
 
 
 
-(check-expect (expr? '(lambda (x) x)) #t)
-(check-expect (expr? '((lambda (x) x) (lambda (x) x))) #t)
-(check-expect (step '((lambda (x) x) (lambda (y) y))) '(lambda (y) y))
-(check-expect (step '(((lambda (x) x) (lambda (y) y)) (lambda (z) z))) '((lambda (y) y) (lambda (z) z)))
+;(expr? '(lambda (x) x))
+;(expr? '((lambda (x) x) (lambda (x) x)))
+;(step '((lambda (x) x) (lambda (y) y)))
+;(step '(((lambda (x) x) (lambda (y) y)) (lambda (z) z)))
 ;(step (step '(((lambda (x) x) (lambda (y) y)) (lambda (z) z))))
 
 ;(deep-eval '((lambda (x) x) (lambda (y) y)))
@@ -72,4 +70,3 @@
 ;(step (step '((lambda (x) (x x)) (lambda (y) (y y)))))
 ;(step '((lambda (x) x) (lambda (y) y)))
 ;(deep-eval '((lambda (x) (x x)) (lambda (y) (y y))))
-(test)
